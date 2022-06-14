@@ -9,7 +9,6 @@ from kivy.uix.label import Label
 from database import *
 from database import proposition
 
-
 compt = 0
 
 # Step 2: Création des fenêtres différentes classes et methodes associées
@@ -101,7 +100,7 @@ class CreateAccountWindow(Screen):
         self.email.text = ""
         self.password.text = ""
         self.namee.text = ""
-# fonction appelé en cas d'erreur de replissage des champs de saisie
+# fonctions appelées en cas d'erreur de replissage des champs de saisie
 def invalidLogin():
     pop = Popup(title='Invalid Login',
                   content=Label(text='Invalid email or password.'),
