@@ -1,7 +1,5 @@
 import datetime
 
-import pymysql
-
 
 class DataBase:
     def __init__(self, filename):
@@ -69,6 +67,8 @@ class proposition:
 
 allPropositions = ['J aime faire des pièces Catia', 'je souhaite construir un avenir avec des solutions durables','j adore créer des applications et des sites internet ',
 'j ai toujours aimer associer le médical à l ingénieurie']
+
+
 def initialisation():
     # connexion a mysql
     mypass = "Popsy123"

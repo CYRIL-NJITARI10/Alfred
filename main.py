@@ -1,4 +1,3 @@
-import pymysql
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang import Builder
@@ -9,7 +8,6 @@ from kivy.uix.screenmanager import Screen, ScreenManager, NoTransition
 from kivy.uix.label import Label
 from database import *
 from database import proposition
-
 
 compt = 0
 
@@ -102,7 +100,7 @@ class CreateAccountWindow(Screen):
         self.email.text = ""
         self.password.text = ""
         self.namee.text = ""
-# fonction appelé en cas d'erreur de replissage des champs de saisie
+# fonctions appelées en cas d'erreur de replissage des champs de saisie
 def invalidLogin():
     pop = Popup(title='Invalid Login',
                   content=Label(text='Invalid email or password.'),
