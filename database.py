@@ -1,6 +1,6 @@
 import datetime
 
-import pymysql
+
 
 
 class DataBase:
