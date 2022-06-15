@@ -1,5 +1,5 @@
 import datetime
-
+import random
 
 class DataBase:
     def __init__(self, filename):
@@ -50,22 +50,48 @@ class DataBase:
         return str(datetime.datetime.now()).split(" ")[0]
 
 
-class proposition:
+class bd_proposition:
     def __init__(self, filename):
         self.filename = filename
         self.propo = None
         self.file = None
+        self.nbr_prop_par_bloc = 8
+        self.nbr_bloc = 2
+        self.current_bloc = None
+        self.current_proposition = None
+        self.load()
+        #print(self.current_bloc)
 
-    def get_new_proposition(self):
-        self.propo = []
+    def load(self):
         self.file = open(self.filename, "r")
-        for line in self.file:
-            self.propo.append(line[:len(line) - 1])
+        self.propo = []
 
+        for line in self.file:
+            proposition, DE, AE, EN, IN, IS, IA, IAD, SM = line.split(";")
+            self.propo.append([proposition,DE, AE, EN, IN, IS, IA, IAD, SM[:len(SM)-1]])
         self.file.close()
+
+    def dict_proposition(self):
         return self.propo
 
-allPropositions = ['J aime faire des pièces Catia', 'je souhaite construir un avenir avec des solutions durables','j adore créer des applications et des sites internet ',
+    def set_current_bloc_proposition(self):
+        if(self.nbr_bloc * self.nbr_prop_par_bloc != len(self.propo)):
+            print('error')
+        else:
+            n = random.randint(1,self.nbr_bloc)
+            #print(n)
+            while self.current_bloc == n:
+                n = random.randint(1, self.nbr_bloc)
+                #print(n)
+            return n
+    def get_new_bloc_proposition(self):
+        self.current_proposition = []
+        n = 1
+        for i in range((n-1)* self.nbr_prop_par_bloc,n*self.nbr_prop_par_bloc):
+            self.current_proposition.append(self.propo[i][0])
+        return self.current_proposition
+
+allPropositions = ['J aime faire des pièces Catia', 'je souhaite construire un avenir avec des solutions durables','j adore créer des applications et des sites internet ',
 'j ai toujours aimer associer le médical à l ingénieurie']
 
 

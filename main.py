@@ -7,7 +7,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen, ScreenManager, NoTransition
 from kivy.uix.label import Label
 from database import *
-from database import proposition
+
 
 compt = 0
 
@@ -20,8 +20,8 @@ class MainWindow(Screen):
     # fenêtre des propositions Oui/Neutre/Non
 class MajeureWindow(Screen):
     box = ObjectProperty()
-    #proposition = StringProperty(proposition("proposition.txt").get_new_proposition()[0])
-    proposition = StringProperty(allPropositions[0])
+    proposition = StringProperty(bd_proposition("proposition.txt").get_new_bloc_proposition()[0])
+    #proposition = StringProperty(allPropositions[0])
 
     def update_text(self, label_text):
         self.box.text = label_text
@@ -29,11 +29,11 @@ class MajeureWindow(Screen):
     def new_proposition(self):
         global compt
         compt += 1
-        self.proposition = allPropositions[compt]
-        if (compt == len(allPropositions)-1):
+        if (compt == len(bd_proposition("proposition.txt").get_new_bloc_proposition())):
             compt = 0
             sm.current = "Accueil"
             result_dispo()
+        self.proposition = bd_proposition("proposition.txt").get_new_bloc_proposition()[compt]
 
     # fenêtre Info Majeures
 
@@ -72,6 +72,7 @@ class LoginWindow(Screen):
     def reset(self):
         self.email.text = ""
         self.password.text = ""
+
 # fenêtre de creation de compte
 
 class CreateAccountWindow(Screen):
