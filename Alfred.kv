@@ -138,31 +138,50 @@
 
 <MainWindow>:
     name: "Accueil"
-
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
         orientation:"vertical"
         Image:
-            source:'images/epf.jpg'
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            source:'images/img.png'
+            size_hint: 0.2, 0.15
+            pos_hint: {'center_x': 0.88, 'center_y': 0.93}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            source:'images/ALFREDBON.png'
+            size_hint: 0.9, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.82}
             allow_stretch: True
             keep_ratio: True
         Label:
-            color: 1,0,0,1
-            text: "ALFRED"
+            color: 0.14,0.23,0.54
+            text: "Bienvenue sur ton assistant personnalisé"
             size_hint: 1, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
-            font_size: '1.05833cm'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.57}
+            font_size: '0.4833cm'
+            font_name: 'Comic'
             #font_size: (root.width**2 + root.height**2) / 14**4
         FloatLayout:
             orientation:"horizontal"
             Button:
                 pos_hint:{"x": 0.2, "y":0.4}
                 size_hint:0.6, 0.1
-                text: "Ma Majeure"
+                text: "Les affirmations"
                 on_release:
                     app.root.current = "Majeure"
                     root.manager.transition.direction = "left"
+                background_color: 0,0,0,0
+                Image:
+                    source: "images/boutonaff.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
             Button:
                 pos_hint:{"x": 0.2, "y":0.3}
                 size_hint:0.6, 0.1
@@ -170,14 +189,26 @@
                 on_release:
                     app.root.current = "result"
                     root.manager.transition.direction = "left"
+                background_color: 0,0,0,0
+                Image:
+                    source: "images/boutonre.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
 
             Button:
                 pos_hint:{"x": 0.2, "y":0.2}
+                background_color: 115/255,183/255,245/255
                 size_hint:0.6, 0.1
-                text: "Info Majeure"
                 on_release:
                     app.root.current = "Info"
                     root.manager.transition.direction = "left"
+                background_color: 0,0,0,0
+                Image:
+                    source: "images/bouton1.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
 
             Button:
                 pos_hint:{"x":0.2, "y": 0.1}
@@ -186,110 +217,167 @@
                 on_release:
                     app.root.current = "param"
                     root.manager.transition.direction = "left"
+                background_color: 0,0,0,0
+                Image:
+                    source: "images/boutonpar.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
 
 <MajeureWindow>:
     name: "Majeure"
     
     box:box
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
         orientation:"vertical"
         Image:
-            source:'images/epf.jpg'
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            source:'images/img.png'
+            size_hint: 0.2, 0.15
+            pos_hint: {'center_x': 0.88, 'center_y': 0.93}
             allow_stretch: True
             keep_ratio: True
-        Label:
-            color: 1,0,0,1
-            text: "ALFRED"
-            size_hint: 1, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
-            font_size: '1.05833cm'
-            #font_size: (root.width**2 + root.height**2) / 14**4
+        Image:
+            source:'images/ALFREDBON.png'
+            size_hint: 0.9, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.82}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            source:'images/arrplan.png'
+            size_hint: 0.9, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+            allow_stretch: True
+            keep_ratio: True
         Label:
             id: box
             text: ""
             size_hint: 0.8, 0.2
+            #font_size: '1.4833cm'
             pos_hint: {'center_x': 0.5, 'center_y': 0.55}
             font_size: (root.width**2 + root.height**2) / 14**4
         Label:
             text: root.proposition
+            color : 1,1,1,1
+            font_name: 'Comic'
             size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            #font_size: '1.4833cm'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
             font_size: (root.width**2 + root.height**2) / 14**4
 
         Button:
             pos_hint: {'center_x': 0.2, 'center_y': 0.2}
             size_hint:0.2, 0.1
-            text: "Non"
+            background_color: 0,0,0,0
+            Image:
+                source: "images/annuler.PNG"
+                size: 50,50
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
         Button:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            pos_hint: {'center_x': 0.53, 'center_y': 0.2}
             size_hint:0.2, 0.1
+            background_color: 0,0,0,0
             text: "Neutre"
+            Image:
+                source: "images/douteux.PNG"
+                size: 75,75
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
         Button:
             pos_hint: {'center_x': 0.8, 'center_y': 0.2}
             size_hint:0.2,0.1
-            text: "Oui"
+            background_color: 0,0,0,0
             on_press:root.new_proposition()
+            Image:
+                source: "images/amour-vert.PNG"
+                size: 50, 50
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+
         Button:
             pos_hint: {'center_x': 0.5, 'center_y': 0.05}
             size_hint:0.2,0.1
             text: "Retour"
+            background_color: 0,0,0,0
             on_release:
                 app.root.current = "Accueil"
                 root.manager.transition.direction = "right"
+            Image:
+                source: "images/retour.PNG"
+                size: 200,200
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
 
 <InfoWindow>:
     name: "Info"
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
-        Label:
-            text: "Information sur les Majeures"
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-            font_size: (root.width**2 + root.height**2) / 14**4
+        Image:
+            source:'images/nom.png'
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+            allow_stretch: True
+            keep_ratio: True
         Button:
-            pos_hint:{"x":0.01, "y": 0.85}
+            pos_hint: {'center_x': 0.17, 'center_y': 0.06}
             size_hint:0.2,0.1
             text: "Retour"
+            background_color: 0,0,0,0
             on_release:
                 app.root.current = "Accueil"
                 root.manager.transition.direction = "right"
+            Image:
+                source: "images/retour.PNG"
+                size: 120,120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
     FloatLayout:
         orientation:"vertical"
-        Image:
-            source:'images/epf.jpg'
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
-            allow_stretch: True
-            keep_ratio: True
-        Label:
-            color: 1,0,0,1
-            text: "ALFRED"
-            size_hint: 1, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-            font_size: '1.05833cm'
-            #font_size: (root.width**2 + root.height**2) / 14**4
+
         FloatLayout:
             orientation:"horizontal"
             Button:
-                pos_hint: {'center_x': 0.25, 'center_y': 0.5}
+                pos_hint: {'center_x': 0.25, 'center_y': 0.7}
                 #pos_hint:{"x": 0.2, "y":0.5}
                 size_hint:0.3, 0.07
                 text: "DE"
-                #background_color: 1, 0, 0, 1
+                background_color: 0, 0, 0, 0
                 on_release:
                     #app.root.current = "Majeure"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/de.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.25, 'center_y': 0.4}
+                pos_hint: {'center_x': 0.75, 'center_y': 0.7}
                 size_hint:0.3, 0.07
                 text: "AE"
                 on_release:
                     #app.root.current = "Majeure"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/ae.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
             Button:
                 pos_hint: {'center_x': 0.25, 'center_y': 0.3}
                 size_hint:0.3, 0.07
