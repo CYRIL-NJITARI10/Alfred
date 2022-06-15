@@ -136,7 +136,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "create"
+sm.current = "Accueil"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):
