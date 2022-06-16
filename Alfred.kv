@@ -7,20 +7,26 @@
     email: email
     password: password
 
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
+        orientation:"vertical"
         Image:
-            source:'images/epf.jpg'
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            source:'images/img.png'
+            size_hint: 0.2, 0.15
+            pos_hint: {'center_x': 0.88, 'center_y': 0.93}
             allow_stretch: True
             keep_ratio: True
-        Label:
-            color: 1,0,0,1
-            text: "ALFRED"
-            size_hint: 1, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
-            font_size: '1.05833cm'
-            #font_size: (root.width**2 + root.height**2) / 14**4
+        Image:
+            source:'images/ALFREDBON.png'
+            size_hint: 0.9, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.82}
+            allow_stretch: True
+            keep_ratio: True
         Label:
             id : itmd
             pos_hint: {'center_x': 0.2, 'center_y': 0.5}
@@ -68,22 +74,27 @@
     namee: namee
     email: email
     password: passw
-
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
-        size: root.width, root.height/2
+        orientation:"vertical"
         Image:
-            source:'images/epf.jpg'
-            size_hint: 0.8, 0.2
-            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            source:'images/img.png'
+            size_hint: 0.2, 0.15
+            pos_hint: {'center_x': 0.88, 'center_y': 0.93}
             allow_stretch: True
             keep_ratio: True
-        Label:
-            color: 1,0,0,1
-            text: "ALFRED"
-            size_hint: 1, 0.9
-            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
-            font_size: '1.05833cm'
-            #font_size: (root.width**2 + root.height**2) / 14**4
+        Image:
+            source:'images/ALFREDBON.png'
+            size_hint: 0.9, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.82}
+            allow_stretch: True
+            keep_ratio: True
+
         Label:
             text: "Créer un compte"
             size_hint: 0.8, 0.2
@@ -341,7 +352,7 @@
             allow_stretch: True
             keep_ratio: True
         Button:
-            pos_hint: {'center_x': 0.17, 'center_y': 0.06}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             size_hint:0.2,0.1
             text: "Retour"
             background_color: 0,0,0,0
@@ -359,7 +370,7 @@
         FloatLayout:
             orientation:"horizontal"
             Button:
-                pos_hint: {'center_x': 0.25, 'center_y': 0.7}
+                pos_hint: {'center_x': 0.25, 'center_y': 0.8}
                 #pos_hint:{"x": 0.2, "y":0.5}
                 size_hint:0.3, 0.07
                 text: "DE"
@@ -373,9 +384,10 @@
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.75, 'center_y': 0.7}
+                pos_hint: {'center_x': 0.75, 'center_y': 0.8}
                 size_hint:0.3, 0.07
                 text: "AE"
+                background_color: 0, 0, 0, 0
                 on_release:
                     #app.root.current = "Majeure"
                     #root.manager.transition.direction = "left"
@@ -385,20 +397,33 @@
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.25, 'center_y': 0.3}
+                pos_hint: {'center_x': 0.75, 'center_y': 0.65}
                 size_hint:0.3, 0.07
                 text: "SM"
+                background_color: 0, 0, 0, 0
                 on_release:
                     #app.root.current = "result"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/sm.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
 
             Button:
-                pos_hint: {'center_x': 0.25, 'center_y': 0.2}
+                pos_hint: {'center_x': 0.25, 'center_y': 0.65}
                 size_hint:0.3, 0.07
                 text: "IAD"
+                background_color: 0, 0, 0, 0
                 on_release:
                     #app.root.current = "Info"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/iad.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
             Button:
                 pos_hint: {'center_x': 0.75, 'center_y': 0.5}
                 size_hint:0.3, 0.07
@@ -406,27 +431,47 @@
                 on_release:
                     #app.root.current = "Info"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/is.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.75, 'center_y': 0.4}
+                pos_hint: {'center_x': 0.25, 'center_y': 0.5}
                 size_hint:0.3, 0.07
                 text: "EN"
                 on_release:
                     #app.root.current = "Info"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/in.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.75, 'center_y': 0.3}
+                pos_hint: {'center_x': 0.75, 'center_y': 0.35}
                 size_hint:0.3, 0.07
                 text: "IA"
                 on_release:
                     #app.root.current = "Info"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/mana.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
             Button:
-                pos_hint: {'center_x': 0.75, 'center_y': 0.2}
+                pos_hint: {'center_x': 0.25, 'center_y': 0.35}
                 size_hint:0.3, 0.07
                 text: "IN"
                 on_release:
                     #app.root.current = "Info"
                     #root.manager.transition.direction = "left"
+                Image:
+                    source: "images/en.PNG"
+                    size: 200,200
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
 
 
 
