@@ -27,7 +27,9 @@ class MajeureWindow(Screen):
     def update_text(self, label_text):
         self.box.text = label_text
     def ajout_point_majeure(self):
-        bd_p.calcul(bd_p.get_new_bloc_proposition()[compt-1])
+        bd_p.calcul_ajout(bd_p.get_new_bloc_proposition()[compt-1])
+    def retrait_point_majeure(self):
+        bd_p.calcul_retrait(bd_p.get_new_bloc_proposition()[compt - 1])
 
     def new_proposition(self):
         global compt
@@ -143,7 +145,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "Accueil"
+sm.current = "create"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):

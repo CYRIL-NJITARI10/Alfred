@@ -83,12 +83,18 @@ class bd_proposition:
     def dict_proposition(self):
         return self.propo
 
-    def calcul(self,affirmation_courante):
+    def calcul_ajout(self,affirmation_courante):
         global dict_majeure
         for i in range(0,len(self.propo)):
             if(self.propo[i][0] == affirmation_courante):
                 for j in range(1,len(self.propo[i])):
                     dict_majeure[self.list_majeures[j - 1]] += self.propo[i][j]
+    def calcul_retrait(self,affirmation_courante):
+        global dict_majeure
+        for i in range(0,len(self.propo)):
+            if(self.propo[i][0] == affirmation_courante):
+                for j in range(1,len(self.propo[i])):
+                    dict_majeure[self.list_majeures[j - 1]] -= self.propo[i][j]
     def dict_resultat(self):
         return sorted(dict_majeure.items(), key=lambda t: t[1])
     def reset_dict_maj(self,dict_majeure):
