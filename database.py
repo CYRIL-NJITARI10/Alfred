@@ -1,6 +1,11 @@
 import datetime
 import random
 
+
+nbr_bloc = 4
+id_bloc = random.randint(1, nbr_bloc)
+dict_majeure = {}
+
 class DataBase:
     def __init__(self, filename):
         self.filename = filename
@@ -56,63 +61,59 @@ class bd_proposition:
         self.propo = None
         self.file = None
         self.nbr_prop_par_bloc = 8
-        self.nbr_bloc = 2
+        self.nbr_bloc = 4
         self.current_bloc = None
-        self.current_proposition = None
+        self.list_majeures = None
+        self.id_bloc = 1
         self.load()
-        #print(self.current_bloc)
+
 
     def load(self):
+        global dict_majeure
         self.file = open(self.filename, "r")
         self.propo = []
+        self.list_majeures = ["DE","AE","EN","IN","IS","IA","IAD","SM"]
 
         for line in self.file:
             proposition, DE, AE, EN, IN, IS, IA, IAD, SM = line.split(";")
-            self.propo.append([proposition,DE, AE, EN, IN, IS, IA, IAD, SM[:len(SM)-1]])
+            self.propo.append([proposition,int(DE), int(AE), int(EN), int(IN), int(IS), int(IA), int(IAD), int(SM[:len(SM)-1])])
         self.file.close()
-
+        for i in self.list_majeures:
+            dict_majeure[i]=0
     def dict_proposition(self):
         return self.propo
 
-    def set_current_bloc_proposition(self):
-        if(self.nbr_bloc * self.nbr_prop_par_bloc != len(self.propo)):
+    def calcul(self,affirmation_courante):
+        global dict_majeure
+        for i in range(0,len(self.propo)):
+            if(self.propo[i][0] == affirmation_courante):
+                for j in range(1,len(self.propo[i])):
+                    dict_majeure[self.list_majeures[j - 1]] += self.propo[i][j]
+    def dict_resultat(self):
+        return sorted(dict_majeure.items(), key=lambda t: t[1])
+    def reset_dict_maj(self,dict_majeure):
+        for i in self.list_majeures:
+            dict_majeure[i]=0
+    def aleatoire(self):
+        global id_bloc
+        if (self.nbr_bloc * self.nbr_prop_par_bloc != len(self.propo)):
             print('error')
         else:
-            n = random.randint(1,self.nbr_bloc)
-            #print(n)
-            while self.current_bloc == n:
+            n = random.randint(1, self.nbr_bloc)
+            while id_bloc == n:
                 n = random.randint(1, self.nbr_bloc)
-                #print(n)
-            return n
+        id_bloc = n
     def get_new_bloc_proposition(self):
-        self.current_proposition = []
-        n = 1
-        for i in range((n-1)* self.nbr_prop_par_bloc,n*self.nbr_prop_par_bloc):
-            self.current_proposition.append(self.propo[i][0])
-        return self.current_proposition
-
-allPropositions = ['J aime faire des pièces Catia', 'je souhaite construire un avenir avec des solutions durables','j adore créer des applications et des sites internet ',
-'j ai toujours aimer associer le médical à l ingénieurie']
+        global id_bloc
+        self.current_bloc = []
+        for i in range((id_bloc - 1) * self.nbr_prop_par_bloc,id_bloc * self.nbr_prop_par_bloc):
+            self.current_bloc.append(self.propo[i][0])
+        return self.current_bloc
 
 
-def initialisation():
-    # connexion a mysql
-    mypass = "Popsy123"
-    mydatabase = "base_d_alfred"
+#print(bd_proposition("proposition.txt").affiche_dict_maj())
 
-    con = pymysql.connect(host="localhost", user="root", password=mypass, database=mydatabase)
-    cur = con.cursor()
-    #n = cur.execute("select * from majeures")
-    compt = 0
-    for i in range(0, len(allPropositions)):
-        insertMaj = "insert into majeures(description_maj) values('" + allPropositions[i] + "');"
-        try:
-            #insertMaj = "insert into majeures(description_maj) values('J aime faire des pièces Catia');"
-            cur.execute(insertMaj)
-            con.commit()
-            compt = compt + 1
-        except:
-            print("error")
-            break
-    #if compt == len(allPropositions):
-        #messagebox.showinfo('succès', "La table a été initialisée avec succès!")
+#print(dict_majeure)
+
+
+

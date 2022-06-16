@@ -275,6 +275,7 @@
             pos_hint: {'center_x': 0.2, 'center_y': 0.2}
             size_hint:0.2, 0.1
             background_color: 0,0,0,0
+            on_press:root.new_proposition()
             Image:
                 source: "images/annuler.PNG"
                 size: 50,50
@@ -286,6 +287,7 @@
             size_hint:0.2, 0.1
             background_color: 0,0,0,0
             text: "Neutre"
+            on_press:root.new_proposition()
             Image:
                 source: "images/douteux.PNG"
                 size: 75,75
@@ -296,7 +298,11 @@
             pos_hint: {'center_x': 0.8, 'center_y': 0.2}
             size_hint:0.2,0.1
             background_color: 0,0,0,0
-            on_press:root.new_proposition()
+            on_press:
+                root.ajout_point_majeure()
+                root.new_proposition()
+
+
             Image:
                 source: "images/amour-vert.PNG"
                 size: 50, 50

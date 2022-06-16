@@ -10,7 +10,7 @@ from database import *
 
 
 compt = 0
-
+#dict_majeure = []
 # Step 2: Création des fenêtres différentes classes et methodes associées
 
     # fenêtre principale après connexion  Ma majeure/Resultat/Info Majeures/Paramètres
@@ -18,6 +18,7 @@ class MainWindow(Screen):
     pass
 
     # fenêtre des propositions Oui/Neutre/Non
+
 class MajeureWindow(Screen):
     box = ObjectProperty()
     proposition = StringProperty(bd_proposition("proposition.txt").get_new_bloc_proposition()[0])
@@ -25,15 +26,20 @@ class MajeureWindow(Screen):
 
     def update_text(self, label_text):
         self.box.text = label_text
+    def ajout_point_majeure(self):
+        bd_p.calcul(bd_p.get_new_bloc_proposition()[compt-1])
 
     def new_proposition(self):
         global compt
         compt += 1
-        if (compt == len(bd_proposition("proposition.txt").get_new_bloc_proposition())):
+        if (compt == len(bd_p.get_new_bloc_proposition())):
             compt = 0
+            bd_p.aleatoire()
+            print(bd_p.dict_resultat())
+            #bd_p.reset_dict_maj(dict_majeure)
             sm.current = "Accueil"
             result_dispo()
-        self.proposition = bd_proposition("proposition.txt").get_new_bloc_proposition()[compt]
+        self.proposition = bd_p.get_new_bloc_proposition()[compt]
 
     # fenêtre Info Majeures
 
@@ -59,7 +65,7 @@ class LoginWindow(Screen):
 
     def loginBtn(self):
         if db.validate(self.email.text, self.password.text):
-            self.intermediaire.text = "Bonjour " + db.give_user_name(self.email.text) + ", \nRépond aux affirmations et obtient le resultat dans la section RESULTAT"
+            self.intermediaire.text = "Bonjour " + db.give_user_name(self.email.text) + ", \nRépond aux affirmations et obtient \nle resultat dans la section RESULTAT"
             self.reset()
             sm.current = "Accueil"
         else:
@@ -118,7 +124,7 @@ def invalidForm():
 
 def result_dispo():
     pop = Popup(title='Bravo!',
-                  content=Label(text='Success! \n Les resultats de votre dernier test\n sont disponible dans la section Resultat'),
+                  content=Label(text='Success! \n Les resultats de votre dernier test\n sont disponible dans la section Resultat\n'),
                   size_hint=(.8, .7), size=(400, 400))
 
     pop.open()
@@ -126,8 +132,8 @@ def result_dispo():
 
 # liaison avec le fichier kv
 kv = Builder.load_file("Alfred.kv")
-db=DataBase("users.txt")
-
+db = DataBase("users.txt")
+bd_p = bd_proposition("proposition.txt")
 # A sm on affecte une instance de windowManager classe qui nous permet de gérer le passage d'une fenêtre à l'autre
 sm = WindowManager()
 
@@ -137,7 +143,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "create"
+sm.current = "Accueil"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):
