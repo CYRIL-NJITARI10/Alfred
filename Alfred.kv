@@ -53,18 +53,31 @@
             size_hint: 0.35, 0.1
             font_size: (root.width**2 + root.height**2) / 13**4
             text: "Se connecter"
+            background_color: 0,0,0,0
             on_release:
                 root.manager.transition.direction = "up"
                 root.loginBtn(); root.manager.get_screen('Majeure').update_text(root.intermediaire.text)
+            Image:
+                source: "images/seco.PNG"
+                size: 170,170
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
         Button:
             pos_hint:{"x":0.15,"y":0.05}
             size_hint: 0.35, 0.1
             font_size: (root.width**2 + root.height**2) / 13**4
             text: "Créer un compte"
+            background_color: 0,0,0,0
             on_release:
                 root.manager.transition.direction = "right"
                 root.createBtn()
+            Image:
+                source: "images/cre.PNG"
+                size: 170,170
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
 
 #fenêtre de création de compte
 
@@ -133,19 +146,32 @@
             pos_hint:{"x":0.15,"y":0.05}
             size_hint: 0.35, 0.1
             font_size: (root.width**2 + root.height**2) / 13**4
+            background_color: 0,0,0,0
             text: "Se connecter"
             on_release:
                 app.root.current = "login"
                 root.manager.transition.direction = "left"
+            Image:
+                source: "images/seco.PNG"
+                size: 170,170
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
         Button:
             pos_hint:{"x":0.55,"y":0.05}
             size_hint: 0.35, 0.1
             text: "S'inscrire"
+            background_color: 0,0,0,0
             font_size: (root.width**2 + root.height**2) / 13**4
             on_release:
                 root.manager.transition.direction = "left"
                 root.submit()
+            Image:
+                source: "images/sins.PNG"
+                size: 170,170
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
 
 <MainWindow>:
     name: "Accueil"
@@ -322,7 +348,7 @@
 
 
         Button:
-            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             size_hint:0.2,0.1
             text: "Retour"
             background_color: 0,0,0,0
@@ -331,7 +357,7 @@
                 root.manager.transition.direction = "right"
             Image:
                 source: "images/retour.PNG"
-                size: 200,200
+                size: 120,120
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
 
@@ -477,6 +503,12 @@
 
 <ParametresWindow>:
     name: "param"
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
         Label:
             text: "Paramètres"
@@ -485,15 +517,27 @@
             font_size: (root.width**2 + root.height**2) / 14**4
 
         Button:
-            pos_hint:{"x":0.01, "y": 0.85}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             size_hint:0.2,0.1
             text: "Retour"
+            background_color: 0,0,0,0
             on_release:
                 app.root.current = "Accueil"
                 root.manager.transition.direction = "right"
+            Image:
+                source: "images/retour.PNG"
+                size: 120,120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
 
 <ResultWindow>:
     name: "result"
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
     FloatLayout:
         Label:
             text: "Resultat"
@@ -502,9 +546,40 @@
             font_size: (root.width**2 + root.height**2) / 14**4
 
         Button:
-            pos_hint:{"x":0.01, "y": 0.85}
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             size_hint:0.2,0.1
             text: "Retour"
+            background_color: 0,0,0,0
             on_release:
                 app.root.current = "Accueil"
                 root.manager.transition.direction = "right"
+            Image:
+                source: "images/retour.PNG"
+                size: 120,120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+        Image:
+            source:'images/pod.png'
+            size_hint: 0.8, 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            source:'images/nom.png'
+            size_hint: 0.4, 0.4
+            pos_hint: {'center_x': 0.5, 'center_y': 0.48}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            source:'images/class.png'
+            size_hint: 0.7, 0.7
+            pos_hint: {'center_x': 0.15, 'center_y': 0.28}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            source:'images/result.png'
+            size_hint: 0.65, 0.65
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+            allow_stretch: True
+            keep_ratio: True
