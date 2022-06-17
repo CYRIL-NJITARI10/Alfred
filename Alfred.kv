@@ -56,7 +56,8 @@
             background_color: 0,0,0,0
             on_release:
                 root.manager.transition.direction = "up"
-                root.loginBtn(); root.manager.get_screen('Majeure').update_text(root.intermediaire.text)
+                root.loginBtn();
+                #root.manager.get_screen('Majeure').update_text(root.intermediaire.text)
             Image:
                 source: "images/seco.PNG"
                 size: 170,170
@@ -264,8 +265,11 @@
 
 <MajeureWindow>:
     name: "Majeure"
-    
-    box:box
+
+    first_itrm:first_itrm
+    second_itrm:second_itrm
+    third_itrm:third_itrm
+
     canvas.before:
         Color:
             rgba: ( 1,1,1,1)
@@ -293,12 +297,17 @@
             allow_stretch: True
             keep_ratio: True
         Label:
-            id: box
-            text: ""
-            size_hint: 0.8, 0.2
-            #font_size: '1.4833cm'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
-            font_size: (root.width**2 + root.height**2) / 14**4
+            id : first_itrm
+            text: root.first
+            pos_hint: {'center_x': 0.2, 'center_y': 1}
+        Label:
+            id : second_itrm
+            text: root.second
+            pos_hint: {'center_x': 0.5, 'center_y': 1}
+        Label:
+            id : third_itrm
+            text: root.third
+            pos_hint: {'center_x': 0.3, 'center_y': 1}
         Label:
             text: root.proposition
             color : 1,1,1,1
@@ -532,6 +541,14 @@
 
 <ResultWindow>:
     name: "result"
+    first_label:first_label
+    second_label:second_label
+
+    third_label:third_label
+    first_maj_ttl:first_maj_ttl
+    second_maj_ttl : second_maj_ttl
+    third_maj_ttl : third_maj_ttl
+
     canvas.before:
         Color:
             rgba: ( 1,1,1,1)
@@ -558,7 +575,60 @@
                 size: 120,120
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-
+        Label:
+            id:first_label
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.48, 'center_y': 0.8}
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            id:second_label
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.27, 'center_y': 0.75}
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            id:third_label
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.68, 'center_y': 0.72}
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            id:first_maj_ttl
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.6, 'center_y': 0.38}
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            id:second_maj_ttl
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.6, 'center_y': 0.28}
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            id:third_maj_ttl
+            text: ""
+            color : 1,0,0,1
+            font_name: 'Comic'
+            size_hint: 0.8, 0.2
+            font_size: '0.4833cm'
+            pos_hint: {'center_x': 0.6, 'center_y': 0.18}
+            #font_size: (root.width**2 + root.height**2) / 14**4
         Image:
             source:'images/pod.png'
             size_hint: 0.8, 0.8
@@ -577,6 +647,8 @@
             pos_hint: {'center_x': 0.15, 'center_y': 0.28}
             allow_stretch: True
             keep_ratio: True
+
+
         Image:
             source:'images/result.png'
             size_hint: 0.65, 0.65

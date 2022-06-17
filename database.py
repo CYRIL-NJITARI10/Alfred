@@ -117,9 +117,5 @@ class bd_proposition:
         return self.current_bloc
 
 
-#print(bd_proposition("proposition.txt").affiche_dict_maj())
-
-#print(dict_majeure)
-
 
 
