@@ -51,15 +51,17 @@ class MajeureWindow(Screen):
             sm.current = "Accueil"
             result_dispo()
         self.proposition = bd_p.get_new_bloc_proposition()[compt]
-
+    # fenêtre detail Info
+class DetailInfoWindow(Screen):
+    pass
     # fenêtre Info Majeures
-
 class InfoWindow(Screen):
-   pass
+    pass
 
     # La classe qui permet de gerer le passage d'une fenêtre à l'autre : les transitions
 class WindowManager(ScreenManager):
     pass
+
     # fenêtre Paramètres appli
 class ParametresWindow(Screen):
     pass
@@ -196,12 +198,12 @@ bd_p = bd_proposition("proposition.txt")
 sm = WindowManager()
 
 # On ajoute toutes les fenêtres devant être ajoutées
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="Accueil"),MajeureWindow(name="Majeure"),ParametresWindow(name="param"),ResultWindow(name="result"),InfoWindow(name="Info")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="Accueil"),MajeureWindow(name="Majeure"),ParametresWindow(name="param"),ResultWindow(name="result"),InfoWindow(name="Info"),DetailInfoWindow(name="DetailInfo")]
 for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "Accueil"
+sm.current = "create"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):

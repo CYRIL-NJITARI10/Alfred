@@ -411,8 +411,10 @@
                 text: "DE"
                 background_color: 0, 0, 0, 0
                 on_release:
-                    #app.root.current = "Majeure"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/de.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/de.PNG"
                     size: 200,200
@@ -424,8 +426,8 @@
                 text: "AE"
                 background_color: 0, 0, 0, 0
                 on_release:
-                    #app.root.current = "Majeure"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/ae.PNG"
                     size: 200,200
@@ -437,8 +439,8 @@
                 text: "SM"
                 background_color: 0, 0, 0, 0
                 on_release:
-                    #app.root.current = "result"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/sm.PNG"
                     size: 200,200
@@ -451,8 +453,8 @@
                 text: "IAD"
                 background_color: 0, 0, 0, 0
                 on_release:
-                    #app.root.current = "Info"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/iad.PNG"
                     size: 200,200
@@ -464,8 +466,8 @@
                 size_hint:0.3, 0.07
                 text: "IS"
                 on_release:
-                    #app.root.current = "Info"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/is.PNG"
                     size: 200,200
@@ -476,8 +478,8 @@
                 size_hint:0.3, 0.07
                 text: "EN"
                 on_release:
-                    #app.root.current = "Info"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/in.PNG"
                     size: 200,200
@@ -488,8 +490,8 @@
                 size_hint:0.3, 0.07
                 text: "IA"
                 on_release:
-                    #app.root.current = "Info"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/mana.PNG"
                     size: 200,200
@@ -500,13 +502,58 @@
                 size_hint:0.3, 0.07
                 text: "IN"
                 on_release:
-                    #app.root.current = "Info"
-                    #root.manager.transition.direction = "left"
+                    app.root.current = "DetailInfo"
+                    root.manager.transition.direction = "left"
                 Image:
                     source: "images/en.PNG"
                     size: 200,200
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
+
+<DetailInfoWindow>:
+    name: "DetailInfo"
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Image:
+            source:'images/nom.png'
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+            allow_stretch: True
+            keep_ratio: True
+        Button:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            size_hint:0.2,0.1
+            text: "Retour"
+            background_color: 0,0,0,0
+            on_release:
+                app.root.current = "Info"
+                root.manager.transition.direction = "right"
+                root.manager.get_screen("DetailInfo").ids.img.source = ''
+                root.manager.get_screen("DetailInfo").ids.img_info.source = ''
+            Image:
+                source: "images/retour.PNG"
+                size: 120,120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+    FloatLayout:
+        Image:
+            id: img
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            allow_stretch: True
+            keep_ratio: True
+        Image:
+            id: img_info
+            size_hint: 0.9, 0.9
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            allow_stretch: True
+            keep_ratio: True
+
 
 
 
