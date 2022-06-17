@@ -47,8 +47,7 @@ class MajeureWindow(Screen):
             self.first = result_sorted[-1][0] + ": " + str(result_sorted[-1][1])
             self.second = result_sorted[-2][0] + ": " + str(result_sorted[-2][1])
             self.third = result_sorted[-3][0] + ": " + str(result_sorted[-3][1])
-            print(self.first)
-            bd_p.reset_dict_maj(dict_majeure)
+            #bd_p.reset_dict_maj(dict_majeure)
             sm.current = "Accueil"
             result_dispo()
         self.proposition = bd_p.get_new_bloc_proposition()[compt]
@@ -71,7 +70,6 @@ class ResultWindow(Screen):
         self.first_label.text = self.manager.get_screen("Majeure").ids.first_itrm.text
         self.second_label.text = self.manager.get_screen("Majeure").ids.second_itrm.text
         self.third_label.text = self.manager.get_screen("Majeure").ids.third_itrm.text
-
         self.first_maj_ttl.text = maj_en_toute_lettre(self.manager.get_screen("Majeure").ids.first_itrm.text[:self.manager.get_screen("Majeure").ids.first_itrm.text.find(':')])
         self.second_maj_ttl.text = maj_en_toute_lettre(self.manager.get_screen("Majeure").ids.second_itrm.text[:self.manager.get_screen("Majeure").ids.second_itrm.text.find(':')])
         self.third_maj_ttl.text = maj_en_toute_lettre(self.manager.get_screen("Majeure").ids.third_itrm.text[:self.manager.get_screen("Majeure").ids.third_itrm.text.find(':')])
