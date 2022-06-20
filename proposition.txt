@@ -1,32 +1,81 @@
-J'aime coder/programmer;1;0;0;0;0;0;0;0
-Je souhaite construire un monde plus durable;0;1;0;0;0;0;0;0
-Je veux aider les autres;0;0;1;0;0;0;0;0
-JJe suis prêt à beaucoup travailler;0;0;0;1;0;0;0;0
-J'ai un bon niveau en anglais et/ou je suis prêt à le travailler;0;0;0;0;1;0;0;0
-Je veux IA1;0;0;0;0;0;1;0;0
-Je veux IAD1;0;0;0;0;0;0;1;0
-Je veux SM1;0;0;0;0;0;0;0;1
-Je veux diriger des projets;1;0;0;0;0;0;0;0
-J'aime la robotique;0;1;0;0;0;0;0;0
-JJe veux développer ma culture générale sur l'énergie et l'environnement;0;0;1;0;0;0;0;0
-Je souhaite traiter et mettre en valeur les données;0;0;0;1;0;0;0;0
-Je veux IS2;0;0;0;0;1;0;0;0
-Je veux IA2;0;0;0;0;0;1;0;0
-Je veux IAD2;0;0;0;0;0;0;1;0
-Je veux SM2;0;0;0;0;0;0;0;1
-Je veux DE3;1;0;0;0;0;0;0;0
-Je veux AE3;0;1;0;0;0;0;0;0
-Je veux EN3;0;0;1;0;0;0;0;0
-Je veux IN3;0;0;0;1;0;0;0;0
-Je veux IS3;0;0;0;0;1;0;0;0
-Je veux IA3;0;0;0;0;0;1;0;0
-Je veux IAD3;0;0;0;0;0;0;1;0
-Je veux SM3;0;0;0;0;0;0;0;1
-Je veux DE4;1;0;0;0;0;0;0;0
-Je veux AE4;0;1;0;0;0;0;0;0
-Je veux EN4;0;0;1;0;0;0;0;0
-Je veux IN4;0;0;0;1;0;0;0;0
-Je veux IS4;0;0;0;0;1;0;0;0
-Je veux IA4;0;0;0;0;0;1;0;0
-Je veux IAD4;0;0;0;0;0;0;1;0
-Je veux SM4;0;0;0;0;0;0;0;1
+J'aime coder/programmer;1;0;0;1;0;0;0;0
+Je souhaite construire un monde plus durable;0;0;3;0;0;0;1;1
+Je veux aider les autres;0;0;0;0;1;0;0;0
+Je suis prêt à beaucoup travailler;0;1;0;1;0;0;0;0
+J'ai un bon niveau en anglais et/ou je suis prêt à le travailler;0;0;0;0;0;1;0;0
+IA;0;0;0;0;0;1;0;0
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+Je veux diriger des projets;0;0;0;1;0;1;0;0
+J'aime la robotique;0;1;0;0;1;0;0;0
+Je veux développer ma culture générale sur l'énergie et l'environnement;0;0;1;0;0;0;0;0
+Je souhaite traiter et mettre en valeur les données;1;0;0;0;0;0;0;0
+J'aime l'architecture;0;0;0;0;0;0;1;0
+Je suis interessé par le comportement des matériaux;0;0;0;0;0;0;0;1
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+J'aime les maths abs;1;0;0;0;1;0;0;0
+Je souhaite m'impliquer dans la transition énergétique;0;0;1;0;0;0;1;0
+J'aime les calculs;0;0;0;0;0;0;0;1
+Je suis prêt à m'autoformer sur de nombreux langages de programmation;0;0;0;1;0;0;0;0
+Je souhaite en découvrir plus sur le domaine de l'entreprise;0;0;0;0;0;1;0;0
+Je suis passioné par le spatial;0;1;0;0;0;0;0;0
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+Je souhaite en découvrir plus sur les systèmes embarqués;0;1;0;1;0;0;0;0
+J'aime la gestion de projet;0;0;1;0;0;1;0;0
+j'aime les probabilités;1;0;0;0;0;0;0;0
+Je veux réaliser des projets complets avec des entreprises;0;0;0;0;0;1;0;0
+Je suis rigoureux dans mes calculs;0;0;0;0;0;0;0;1
+Je souhaite améliorer les performances sortives;0;0;0;0;1;0;0;0
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+J'aime les statistiques;1;1;0;1;0;1;0;0
+J'aime donner du sens à la donnée;1;0;0;1;0;1;0;0
+Je souhaite développer des matériaux compatibles avec l'environnement extérieur;0;0;0;0;1;0;0;1
+Je suis convaincu qu'il est nécessaire de changer nos habitudes;0;0;0;0;0;0;0;1
+mes études doivent s'incrire dans une démarche écoresonsable;0;0;0;0;0;0;0;1
+Je préfère le bâtiment à la structure;0;0;0;0;0;0;1;0
+Je suis passioné par l'aéro ;0;0;0;0;0;0;1;0
+J'aime la résistance des matériaux;0;1;0;0;0;0;1;1
+Je suis intéressé par le monde du sport;0;0;0;0;1;0;0;0
+Je souhaite travailler dans l'urbanisme;1;0;0;0;0;0;1;1
+je souhaite travailler dans un secteur précis;0;1;0;0;1;0;0;0
+Mes compétences doivent avant tout me permettre de rendre les entreprises plus vertes;0;0;1;0;0;0;0;0
+J'ai aimé diriger les différents projets pdt ma 3A;0;0;0;0;0;1;0;0
+j'ai un interêt pour le code;1;0;0;0;0;0;0;0
+Je souhaite en découvrir plus sur le monde du numérique;0;0;0;0;1;0;0;0
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+Je souhaite améliorer le fonctionnement d'une entreprise;0;0;0;0;0;1;0;0
+Je souhaite adapter les informations afin d'améliorer la vie de certaines personnes;1;0;0;0;1;0;0;0
+J'aime la modéélisation et la conception;0;0;0;0;0;0;1;0
+Je suis prêt à chercher des informations et solutions en autonomie;0;0;0;0;0;0;0;1
+J'aime le developpement web;0;0;0;1;0;0;0;0
+Je suis prêt à beaucoup m'investir dans mes études;1;0;0;0;0;0;0;0
+IAD;0;0;0;0;0;0;1;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1
+Je souhaite développer des solutions vertes;0;0;3;0;0;0;0;0
+J'ai un interêt pour le machine learning ;1;0;0;0;0;0;0;0
+J'ai un goût pour la construction;0;0;0;0;0;0;1;0
+Je souhaite  superviser des gros projets de construction;0;0;0;0;0;0;0;1
+Je suis interessé par le développement d'interfaces graphiques;0;0;0;1;0;0;0;0
+Je suis intéressé par le commerce;0;0;0;0;0;1;0;0
+Je souhaite travailler dans des domaines tels que la maintenance, la conception et/ou l'exploitation;0;1;0;0;0;0;0;0
+J'aimerai en découvrir plus sur le corps humain;0;0;0;0;1;0;0;0
+DE;0;0;0;0;0;0;0;1
+Je souhaite approfondir mes connaissances en biomécanique;0;0;0;0;1;0;0;0
+J'ai un interêt pour les mécaniques appliquées;0;0;0;0;0;1;0;0
+Je souhaite développer mes connaissances sur la finance;0;0;0;1;0;0;0;0
+Les différents aspects de la cybersécurité m'intéressent;0;0;0;1;0;0;0;0
+Je suis à l'aise avec la manipulation de plans et la documentation technique;0;0;0;0;0;0;1;1
+Je souhaite avoir des bases dans de nombreux langages de programmation;0;0;0;0;0;0;0;0
+Je suis interessée par la gestion des ressources minérales et énergétiques;0;0;1;0;0;0;0;0
+SM;0;0;0;0;0;0;0;1
+DE;0;0;0;0;0;0;0;1

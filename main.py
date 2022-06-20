@@ -142,7 +142,7 @@ class LoginWindow(Screen):
     def loginBtn(self):
         if db.validate(self.email.text, self.password.text):
             self.current_email.text = self.email.text
-            self.intermediaire.text =  "\n\nRépond aux affirmations " + db.give_user_name(self.email.text) + " et obtient \nle resultat dans la section RESULTAT"
+            self.intermediaire.text =  "\nRépond aux affirmations et obtient \nle resultat dans la section RESULTAT"
             self.reset()
             sm.current = "Accueil"
         else:
@@ -210,7 +210,7 @@ def result_dispo():
 def message_warning(name_user):
     pop = Popup(title='Attention!!!',
                 content=Label(
-                    text=  name_user + ", \n\n Tes réponses aux affirmations \ndéfinissent la qualité de tes resultat."),
+                    text=  name_user + " \n\n Tes réponses aux affirmations \ndéfinissent la qualité de tes resultat."),
                 size_hint=(.8, .7), size=(400, 400))
 
 

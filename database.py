@@ -3,7 +3,7 @@ import random
 from kivy.uix.floatlayout import FloatLayout
 
 
-nbr_bloc = 4
+nbr_bloc = 9
 id_bloc = random.randint(1, nbr_bloc)
 dict_majeure = {}
 
@@ -61,8 +61,8 @@ class bd_proposition:
         self.filename = filename
         self.propo = None
         self.file = None
-        self.nbr_prop_par_bloc = 8
-        self.nbr_bloc = 4
+        self.nbr_prop_par_bloc = 9
+        self.nbr_bloc = 9
         self.current_bloc = None
         self.list_majeures = None
         self.id_bloc = 1
@@ -105,8 +105,9 @@ class bd_proposition:
             dict_majeure[i]=0
     def aleatoire(self):
         global id_bloc
+        n = 0
         if (self.nbr_bloc * self.nbr_prop_par_bloc != len(self.propo)):
-            print('error')
+            print('No pasa nada')
         else:
             n = random.randint(1, self.nbr_bloc)
             while id_bloc == n:
@@ -116,7 +117,11 @@ class bd_proposition:
         global id_bloc
         self.current_bloc = []
         for i in range((id_bloc - 1) * self.nbr_prop_par_bloc,id_bloc * self.nbr_prop_par_bloc):
-            self.current_bloc.append(self.propo[i][0])
+            if(self.propo[i][0] not in self.list_majeures):
+                if(len(self.propo[i][0])>62):
+                    self.current_bloc.append(self.propo[i][0][:62][:self.propo[i][0][:62].rfind(" ")]+"\n"+self.propo[i][0][self.propo[i][0][:62].rfind(" "):])
+                else:
+                    self.current_bloc.append(self.propo[i][0])
         return self.current_bloc
 
 
