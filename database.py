@@ -172,9 +172,9 @@ class resultat:
                     self.stat_tab[self.list_majeures[i]][1] += int(100/len(self.result))
                 if (v[i] == "1"):
                     self.stat_tab[self.list_majeures[i]][2] += int(100/len(self.result))
-        print(len(self.stat_tab))
+        #print(len(self.stat_tab))
         return self.stat_tab
 
 
 
-print(resultat("resultats").statistiques())
+#print(resultat("resultats").statistiques())
