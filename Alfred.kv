@@ -4,6 +4,7 @@
     name: "login" # le name est comme une clé qui permet de faire reférence à la fenetre login
 
     intermediaire : itmd
+    current_email:current_email
     email: email
     password: password
 
@@ -30,6 +31,9 @@
         Label:
             id : itmd
             pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+        Label:
+            id : current_email
+            pos_hint: {'center_x': 0, 'center_y': 1}
         TextInput:
             id: email
             font_size: (root.width**2 + root.height**2) / 13**4
@@ -428,6 +432,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/ae.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/ae.PNG"
                     size: 200,200
@@ -441,6 +447,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/sm.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/sm.PNG"
                     size: 200,200
@@ -455,6 +463,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/iad.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/iad.PNG"
                     size: 200,200
@@ -468,6 +478,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/is.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/is.PNG"
                     size: 200,200
@@ -480,6 +492,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/in.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/in.PNG"
                     size: 200,200
@@ -492,6 +506,8 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/mana.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/mana.PNG"
                     size: 200,200
@@ -504,12 +520,13 @@
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
+                    root.manager.get_screen("DetailInfo").ids.img.source = 'images/en.png'
+                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
                 Image:
                     source: "images/en.PNG"
                     size: 200,200
                     center_x: self.parent.center_x
                     center_y: self.parent.center_y
-
 <DetailInfoWindow>:
     name: "DetailInfo"
     canvas.before:
@@ -571,6 +588,12 @@
             size_hint: 0.8, 0.2
             pos_hint: {"x":0.1, "top":1}
             font_size: (root.width**2 + root.height**2) / 14**4
+        Image:
+            source: "images/boutonpar.PNG"
+            size_hint: 0.5,0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
 
         Button:
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
@@ -585,6 +608,219 @@
                 size: 120,120
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
+        Button:
+            pos_hint: {'center_x': 0.2, 'center_y': 0.65}
+            size_hint:0.3, 0.07
+            text: "Réinitialiser"
+            background_color: 1, 1, 1, 1
+            on_release:
+                root.reset_dernier_test()
+            #Image:
+                #source: "images/sm.PNG"
+                #size: 200,200
+                #center_x: self.parent.center_x
+                #center_y: self.parent.center_y
+        Button:
+            pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+            size_hint:0.3, 0.07
+            text: "A propos d'Alfred"
+            background_color: 1, 1, 1, 1
+            #on_release:
+               #root.reset()
+            #Image:
+                #source: "images/sm.PNG"
+                #size: 200,200
+                #center_x: self.parent.center_x
+                #center_y: self.parent.center_y
+        Button:
+            pos_hint: {'center_x': 0.2, 'center_y': 0.3}
+            size_hint:0.3, 0.07
+            text: "Statistiques"
+            background_color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "stats"
+                root.manager.transition.direction = "left"
+            #Image:
+                #source: "images/sm.PNG"
+                #size: 200,200
+                #center_x: self.parent.center_x
+                #center_y: self.parent.center_y
+<Statistiques>:
+    name: "stats"
+    canvas.before:
+        Color:
+            rgba: ( 1,1,1,1)
+        Rectangle :
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Label:
+            text: "Statistiques"
+            color:(1,0,1,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        #Image:
+            #source: "images/boutonpar.PNG"
+            #size_hint: 0.5,0.5
+            #pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            #center_x: self.parent.center_x
+            #center_y: self.parent.center_y
+        Image:
+            source: "images/annuler.PNG"
+            size_hint: 0.2,0.06
+            pos_hint: {'center_x': 0.45, 'center_y': 0.825}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/douteux.PNG"
+            size_hint: 0.2,0.06
+            pos_hint: {'center_x': 0.68, 'center_y': 0.825}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/amour-vert.PNG"
+            size_hint: 0.2,0.06
+            pos_hint: {'center_x': 0.88, 'center_y': 0.825}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/de.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.725}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/ae.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.65}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/en.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.575}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/in.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.5}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/is.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.425}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/mana.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.35}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/iad.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.275}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Image:
+            source: "images/sm.PNG"
+            size_hint: 0.32,0.3
+            pos_hint: {'center_x': 0.15, 'center_y': 0.2}
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        Label:
+            text: root.text_result_stat1
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.725}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat2
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.65}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat3
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.575}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat4
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.5}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat5
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.425}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat6
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.35}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat7
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.275}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Label:
+            text: root.text_result_stat8
+            color:(1,0,0,1)
+            size_hint: 0.8, 0.2
+            bold:True
+            italic : True
+            pos_hint: {'center_x': 0.67, 'center_y': 0.2}
+            font_size: 25
+            #font_size: (root.width**2 + root.height**2) / 14**4
+        Button:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.08}
+            size_hint:0.2,0.1
+            text: "Retour"
+            background_color: 0,0,0,0
+            on_release:
+                app.root.current = "param"
+                root.manager.transition.direction = "right"
+            Image:
+                source: "images/retour.PNG"
+                size: 120,120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
 
 <ResultWindow>:
     name: "result"

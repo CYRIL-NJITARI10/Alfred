@@ -1,5 +1,6 @@
 import datetime
 import random
+from kivy.uix.floatlayout import FloatLayout
 
 
 nbr_bloc = 4
@@ -95,6 +96,8 @@ class bd_proposition:
             if(self.propo[i][0] == affirmation_courante):
                 for j in range(1,len(self.propo[i])):
                     dict_majeure[self.list_majeures[j - 1]] -= self.propo[i][j]
+    def list_tupl_result(self):
+        return list(zip(dict_majeure.keys(), dict_majeure.values()))
     def dict_resultat(self):
         return sorted(dict_majeure.items(), key=lambda t: t[1])
     def reset_dict_maj(self,dict_majeure):
@@ -119,3 +122,59 @@ class bd_proposition:
 
 
 
+class resultat:
+    def __init__(self, filename):
+        self.filename = filename
+        self.file = None
+        self.result = None
+        self.stat_tab = None
+        self.list_majeures = None
+        self.load()
+
+
+    def load(self):
+            self.file = open(self.filename, "r")
+            self.result = {}
+            self.stat_tab = {}
+            self.list_majeures = ["DE", "AE", "EN", "IN", "IS", "IA", "IAD", "SM"]
+
+            for line in self.file:
+                user_name,DE, AE, EN, IN, IS, IA, IAD, SM,max1,max2,max3 = line.strip().split(";")
+                self.result[user_name] = (DE, AE, EN, IN, IS, IA, IAD, SM, max1, max2, max3)
+            for i in range(0,8):
+                self.stat_tab[self.list_majeures[i]] = [0,0,0]
+            self.file.close()
+    def get_user_result(self, user_name):
+        if user_name in self.result:
+            return self.result[user_name]
+        else:
+            return -1
+    def add_user_result(self, table_result_sorted,max1,max2,max3,user_name):
+            self.result[user_name] = (str(table_result_sorted[0][1]), str(table_result_sorted[1][1]), str(table_result_sorted[2][1]),str(table_result_sorted[3][1]),str(table_result_sorted[4][1]),str(table_result_sorted[5][1]),str(table_result_sorted[6][1]),str(table_result_sorted[7][1]),max1,max2,max3)
+            self.save()
+    def have_last_result(self, user_name):
+        if user_name not in self.result:
+            return True
+        else:
+            return False
+
+    def save(self):
+        with open(self.filename, "w") as f:
+            for user in self.result:
+                f.write(user + ";" + self.result[user][0] + ";" + self.result[user][1] + ";" + self.result[user][2]+ ";"  +self.result[user][3]+ ";" +self.result[user][4]+ ";" +self.result[user][5] + ";" + self.result[user][6]+ ";" +self.result[user][7]+ ";" +self.result[user][8]+ ";" + self.result[user][9]+ ";" + self.result[user][10]+"\n")
+
+    def statistiques(self):
+        for i in range(0,8):
+            for k,v in self.result.items():
+                if(v[i] == "-1"):
+                    self.stat_tab[self.list_majeures[i]][0] += int(100/len(self.result))
+                if (v[i] == "0"):
+                    self.stat_tab[self.list_majeures[i]][1] += int(100/len(self.result))
+                if (v[i] == "1"):
+                    self.stat_tab[self.list_majeures[i]][2] += int(100/len(self.result))
+        print(len(self.stat_tab))
+        return self.stat_tab
+
+
+
+print(resultat("resultats").statistiques())
