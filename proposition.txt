@@ -1,15 +1,15 @@
-Je veux DE1;1;0;0;0;0;0;0;0
-Je veux AE1;0;1;0;0;0;0;0;0
-Je veux EN1;0;0;1;0;0;0;0;0
-Je veux IN1;0;0;0;1;0;0;0;0
-Je veux IS1;0;0;0;0;1;0;0;0
+J'aime coder/programmer;1;0;0;0;0;0;0;0
+Je souhaite construire un monde plus durable;0;1;0;0;0;0;0;0
+Je veux aider les autres;0;0;1;0;0;0;0;0
+JJe suis prêt à beaucoup travailler;0;0;0;1;0;0;0;0
+J'ai un bon niveau en anglais et/ou je suis prêt à le travailler;0;0;0;0;1;0;0;0
 Je veux IA1;0;0;0;0;0;1;0;0
 Je veux IAD1;0;0;0;0;0;0;1;0
 Je veux SM1;0;0;0;0;0;0;0;1
-Je veux DE2;1;0;0;0;0;0;0;0
-Je veux AE2;0;1;0;0;0;0;0;0
-Je veux EN2;0;0;1;0;0;0;0;0
-Je veux IN2;0;0;0;1;0;0;0;0
+Je veux diriger des projets;1;0;0;0;0;0;0;0
+J'aime la robotique;0;1;0;0;0;0;0;0
+JJe veux développer ma culture générale sur l'énergie et l'environnement;0;0;1;0;0;0;0;0
+Je souhaite traiter et mettre en valeur les données;0;0;0;1;0;0;0;0
 Je veux IS2;0;0;0;0;1;0;0;0
 Je veux IA2;0;0;0;0;0;1;0;0
 Je veux IAD2;0;0;0;0;0;0;1;0
