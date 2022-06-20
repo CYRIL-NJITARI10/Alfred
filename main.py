@@ -7,7 +7,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen, ScreenManager, NoTransition
 from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
-import matplotlib.pyplot as plt
+
 from database import *
 
 
@@ -268,7 +268,7 @@ for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "stats"
+sm.current = "login"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):
