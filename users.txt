@@ -6,3 +6,4 @@ clara.theodoly@gmail.com;1234;CLARA_THEODOLY;2022-06-10
 elea.2001@hotmail.fr;ROMANE123;Eléa;2022-06-10
 alfred@gmail.com;1234;Cyril;2022-06-10
 lorraineprouillet@hotmail.fr;alfred;LORRAINE;2022-06-15
+ngniguefrankjunior@gmail.com;#inge2021;frank;2022-06-21
