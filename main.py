@@ -142,7 +142,7 @@ class LoginWindow(Screen):
     def loginBtn(self):
         if db.validate(self.email.text, self.password.text):
             self.current_email.text = self.email.text
-            self.intermediaire.text =  "\nRépond aux affirmations et obtient \nle resultat dans la section RESULTAT"
+            self.intermediaire.text =  "\nRépond aux affirmations et obtiens \nle classement dans la section RESULTAT"
             self.reset()
             sm.current = "Accueil"
         else:
@@ -189,28 +189,28 @@ class CreateAccountWindow(Screen):
 
 def invalidLogin():
     pop = Popup(title='Invalid Login',
-                  content=Label(text='Invalid email or password.'),
+                  content=Label(text='Email ou mot de passe invalide'),
                   size_hint=(.7, .7), size=(400, 400))
     pop.open()
 
 
 def invalidForm():
     pop = Popup(title='Invalid Form',
-                  content=Label(text='Please fill in all inputs with valid information.'),
+                  content=Label(text='Veuillez remplir toutes les informations'),
                   size_hint=(.7, .7), size=(400, 400))
 
     pop.open()
 
 def result_dispo():
     pop = Popup(title='Bravo!',
-                  content=Label(text='Success! \n Les resultats de votre dernier test\n sont disponible dans la section Resultat\n'),
+                  content=Label(text='Bravo! \nLes resultats de votre dernier test\n sont disponibles dans la section RESULTAT\n'),
                   size_hint=(.8, .7), size=(400, 400))
 
     pop.open()
 def message_warning(name_user):
     pop = Popup(title='Attention!!!',
                 content=Label(
-                    text=  name_user + " \n\n Tes réponses aux affirmations \ndéfinissent la qualité de tes resultat."),
+                    text=  name_user + " \n\nTes réponses aux affirmations \ndéfinissent la qualité de tes resultats."),
                 size_hint=(.8, .7), size=(400, 400))
 
 
@@ -220,14 +220,14 @@ def call_premier_essai(user_name):
     if(rslt.have_last_result(user_name)):
         pop = Popup(title='Attention!!!',
                         content=Label(
-                        text="Bonjour " + user_name + ", \n\n C'est parti pour ton premier essai "),
+                        text="Bonjour " + user_name + ", \n\nC'est parti pour ton premier essai "),
                         size_hint=(.7, .7), size=(400, 400))
 
         pop.open()
     else:
         pop = Popup(title='Attention!!!',
                     content=Label(
-                        text="Heureux de te revoir " + user_name + ", \n\n Réinitialise tout et recommence dans\n la section Paramètres \nsi non ignore ce message et \ncontinue ton dernier test "),
+                        text="Heureux de te revoir " + user_name + ", \n\nTu peux réinitialiser ton parcours dans\n la section PARAMETRES \nSinon, ignore ce message et \ncontinue ton dernier test "),
                     size_hint=(.7, .7), size=(400, 400))
 
         pop.open()
