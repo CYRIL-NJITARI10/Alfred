@@ -6,6 +6,7 @@ from kivy.uix.floatlayout import FloatLayout
 nbr_bloc = 9
 id_bloc = random.randint(1, nbr_bloc)
 dict_majeure = {}
+bloc_deja_app = [id_bloc]
 
 class DataBase:
     def __init__(self, filename):
@@ -105,14 +106,18 @@ class bd_proposition:
             dict_majeure[i]=0
     def aleatoire(self):
         global id_bloc
+        global bloc_deja_app
         n = 0
         if (self.nbr_bloc * self.nbr_prop_par_bloc != len(self.propo)):
             print('No pasa nada')
         else:
             n = random.randint(1, self.nbr_bloc)
-            while id_bloc == n:
+            while id_bloc == n or n in bloc_deja_app:
                 n = random.randint(1, self.nbr_bloc)
         id_bloc = n
+        bloc_deja_app.append(n)
+        if(len(bloc_deja_app) == self.nbr_bloc):
+            bloc_deja_app = []
     def get_new_bloc_proposition(self):
         global id_bloc
         self.current_bloc = []

@@ -16,6 +16,7 @@ result_sorted = []
 list_tuple_result = []
 test_success = False
 reset_last_test = False
+nbr_app_pop_up = 0
 # Step 2: Création des fenêtres différentes classes et methodes associées
 
     # fenêtre principale après connexion  Ma majeure/Resultat/Info Majeures/Paramètres
@@ -35,6 +36,7 @@ class MainWindow(Screen):
 
 class MajeureWindow(Screen):
     global result_sorted
+    global nbr_app_pop_up
     first = StringProperty("")
     second = StringProperty("")
     third = StringProperty("")
@@ -42,9 +44,12 @@ class MajeureWindow(Screen):
     proposition = StringProperty(bd_proposition("proposition.txt").get_new_bloc_proposition()[0])
 
     def on_enter(self, *args):
+        global nbr_app_pop_up
         self.user_N = db.give_user_name(self.manager.get_screen("login").ids.current_email.text)
-        message_warning(self.manager.get_screen("login").ids.itmd.text)
-        call_premier_essai(self.user_N)
+        if(nbr_app_pop_up == 0):
+            message_warning(self.manager.get_screen("login").ids.itmd.text)
+            call_premier_essai(self.user_N)
+            nbr_app_pop_up = 1
 
 
     def update_text(self,label_text):
