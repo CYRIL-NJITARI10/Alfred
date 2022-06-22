@@ -419,7 +419,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/de.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_de()
                 Image:
                     source: "images/de.PNG"
                     size: 200,200
@@ -434,7 +434,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/ae.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_ae()
                 Image:
                     source: "images/ae.PNG"
                     size: 200,200
@@ -449,7 +449,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/sm.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_sm()
                 Image:
                     source: "images/sm.PNG"
                     size: 200,200
@@ -465,7 +465,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/iad.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_iad()
                 Image:
                     source: "images/iad.PNG"
                     size: 200,200
@@ -480,7 +480,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/is.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_is()
                 Image:
                     source: "images/is.PNG"
                     size: 200,200
@@ -489,12 +489,12 @@
             Button:
                 pos_hint: {'center_x': 0.25, 'center_y': 0.5}
                 size_hint:0.3, 0.07
-                text: "EN"
+                text: "IN"
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/in.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_in()
                 Image:
                     source: "images/in.PNG"
                     size: 200,200
@@ -508,7 +508,7 @@
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/mana.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_mana()
                 Image:
                     source: "images/mana.PNG"
                     size: 200,200
@@ -517,12 +517,12 @@
             Button:
                 pos_hint: {'center_x': 0.25, 'center_y': 0.35}
                 size_hint:0.3, 0.07
-                text: "IN"
+                text: "EN"
                 on_release:
                     app.root.current = "DetailInfo"
                     root.manager.transition.direction = "left"
                     root.manager.get_screen("DetailInfo").ids.img.source = 'images/en.png'
-                    root.manager.get_screen("DetailInfo").ids.img_info.source = 'images/texte_brut.PNG'
+                    root.manager.get_screen("DetailInfo").ids.label_info.text = root.get_info_en()
                 Image:
                     source: "images/en.PNG"
                     size: 200,200
@@ -549,28 +549,31 @@
             text: "Retour"
             background_color: 0,0,0,0
             on_release:
+                root.manager.get_screen("DetailInfo").ids.label_info.text = ''
                 app.root.current = "Info"
                 root.manager.transition.direction = "right"
                 root.manager.get_screen("DetailInfo").ids.img.source = ''
-                root.manager.get_screen("DetailInfo").ids.img_info.source = ''
             Image:
                 source: "images/retour.PNG"
                 size: 120,120
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
-    FloatLayout:
         Image:
             id: img
             size_hint: 0.5, 0.5
             pos_hint: {'center_x': 0.5, 'center_y': 0.8}
             allow_stretch: True
             keep_ratio: True
-        Image:
-            id: img_info
-            size_hint: 0.9, 0.9
+        Label:
+            id: label_info
+            text:''
+            color:(0,0,0,1)
+            #bold:True
+            #italic : True
+            #size_hint: 0.2, 0.9
             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            allow_stretch: True
-            keep_ratio: True
+            font_size: 13
+            #font_size: (root.width**2 + root.height**2) / 14**4
 
 
 

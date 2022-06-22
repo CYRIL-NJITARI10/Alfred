@@ -17,7 +17,8 @@ list_tuple_result = []
 test_success = False
 reset_last_test = False
 nbr_app_pop_up = 0
-# Step 2: Création des fenêtres différentes classes et methodes associées
+
+# Step 1: Création des fenêtres différentes classes et methodes associées
 
     # fenêtre principale après connexion  Ma majeure/Resultat/Info Majeures/Paramètres
 class MainWindow(Screen):
@@ -85,11 +86,33 @@ class DetailInfoWindow(Screen):
     pass
     # fenêtre Info Majeures
 class InfoWindow(Screen):
-    pass
+    def get_info_ae(self):
+        return get_info_majeure('ae')
+    def get_info_de(self):
+        return get_info_majeure('de')
 
-    # La classe qui permet de gerer le passage d'une fenêtre à l'autre : les transitions
+    def get_info_en(self):
+        return get_info_majeure('en')
+
+    def get_info_in(self):
+        return get_info_majeure('in')
+
+    def get_info_mana(self):
+        return get_info_majeure('mana')
+
+    def get_info_iad(self):
+        return get_info_majeure('iad')
+
+    def get_info_sm(self):
+        return get_info_majeure('sm')
+
+    def get_info_is(self):
+        return get_info_majeure('is')
+
+    # La classe permet de gerer le passage d'une fenêtre à l'autre : les transitions
 class WindowManager(ScreenManager):
     pass
+
 class Statistiques(Screen):
     text_result_stat1 = ObjectProperty(str(resultat("resultats").statistiques()["DE"][0])+"           "+str(resultat("resultats").statistiques()["DE"][1])+"           "+str(resultat("resultats").statistiques()["DE"][2]))
     text_result_stat2 =ObjectProperty(str(resultat("resultats").statistiques()["AE"][0])+"           "+str(resultat("resultats").statistiques()["AE"][1])+"           "+str(resultat("resultats").statistiques()["AE"][2]))
@@ -258,6 +281,13 @@ def maj_en_toute_lettre(majeure):
         return 'INGENIERIE ET SANTE'
     else:
         return 'ERROR'
+def get_info_majeure(filename):
+    file = open(filename, "r")
+    infoM = ""
+    for line in file:
+        infoM += line
+    file.close()
+    return infoM
 
 # liaison avec le fichier kv
 kv = Builder.load_file("Alfred.kv")
@@ -268,12 +298,13 @@ rslt = resultat("resultats")
 sm = WindowManager()
 
 # On ajoute toutes les fenêtres devant être ajoutées
+
 screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="Accueil"),MajeureWindow(name="Majeure"),ParametresWindow(name="param"),ResultWindow(name="result"),InfoWindow(name="Info"),DetailInfoWindow(name="DetailInfo"),Statistiques(name="stats")]
 for screen in screens:
     sm.add_widget(screen)
 
 # On definit la première fenêtre qui va s'afficher
-sm.current = "login"
+sm.current = "Info"
 
 # on definit le constructeur de l'appli
 class AlfredApp(App):

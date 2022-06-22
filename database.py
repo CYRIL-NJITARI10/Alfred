@@ -185,6 +185,6 @@ class resultat:
         #print(len(self.stat_tab))
         return self.stat_tab
 
-
+#class InfoMaj:
 
 #print(resultat("resultats").statistiques())
